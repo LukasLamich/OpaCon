@@ -1,38 +1,28 @@
 @import url(//fonts.googleapis.com/css?family=Patrick+Hand+SC|Bangers|Happy+Monkey);
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   font-family: "Bangers", sans-serif;
-  background-color: white;
   color: #2a2522;
   font-size: 2rem;
-}
-
-
-
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+  position: relative;
+  background: linear-gradient(to right, white 50%, #ff3c5e 50%);
 }
 
 /* Header */
 .header {
   background-color: #ff3c5e;
-  padding: 10px 0;
   display: flex;
   align-items: center;
-}
-
-.container {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
 }
 
 .logo {
@@ -44,20 +34,20 @@ body {
 }
 
 .nav {
-  flex-grow: 1;
   display: flex;
   justify-content: center;
 }
 
-.nav ul {
-  list-style: none;
+.nav_links {
   display: flex;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin: 16px 0;
 }
 
-.nav a {
+.nav_link-border {
   text-decoration: none;
   color: #f2f5fa;
   font-size: 2rem;
@@ -68,10 +58,14 @@ body {
   background-color: transparent;
 }
 
-.nav a:hover {
+.nav_link-border:hover {
   background-color: #fcfcfc;
   color: #ff3c5e;
   border-color: #ff3c5e;
+}
+
+.nav_link-social {
+  margin-left: auto;
 }
 
 .header-right {
@@ -80,27 +74,42 @@ body {
   font-weight: bold;
   margin-left: auto;
 }
+.banner {
+  background-image: url("photos/banner.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ff3c5e;
+  width: 1920px;
+  height: 400px;
+  height: calc(100vw * 0.208);
+  width: 100vw;
+  margin: 0 auto;
+}
 
 /* Hero Section */
-.hero {
+#hero {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   width: auto;
   height: auto;
-  display: block;
+  background-color: #ffffff;
+  padding: 40px 0;
+  text-align: center;
 }
 
 .hero-content {
   max-width: 45%;
 }
 
-.banner {
-  background-color: #ff3c5e;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h1 {
+  font-size: 4.3rem;
+  color: #3c3c3c;
+  text-shadow: 2px 8px 2px #abf1b5;
+  text-align: center;
 }
 
 .hero h1 {
@@ -165,27 +174,38 @@ h2 {
   border-radius: 28px;
 }
 
-.fixed-ticket {
+#fixed-ticket {
   position: fixed;
-  top: 550px;
-  right: 80px;
+  bottom: 40px;
+  right: 40px;
+  height: 300px;
   width: 300px;
-  transform: scale(1.4) rotate(-20deg);
+  transform: rotate(-20deg);
   transition: transform 0.3s ease-in-out; /* Plynulá animace */
 }
 
-.fixed-ticket:hover {
-  transform: scale(1.8) rotate(-20deg); /* Zvětší se při najetí myší */
+#fixed-ticket:hover {
+  transform: scale(1.2); /* Zvětší se při najetí myší */
+}
+
+#fixed-img {
+  height: 100%;
+  width: 100%;
+  background-image: url("photos/tickets.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
 }
 
 @media (max-width: 768px) {
-
+  .header {
+    display: none;
+  }
 
   .hero-image img {
     max-width: 80%;
-    
   }
-  img.hero{
+  img.hero {
     display: none;
   }
 
@@ -207,5 +227,10 @@ h2 {
     transform: translateX(0);
   }
 
-
+  #fixed-ticket {
+    height: 200px;
+    width: 200px;
+    right: 5px;
+    bottom: 5px;
+  }
 }
